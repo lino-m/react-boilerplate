@@ -2,6 +2,10 @@ import React from "react";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FlatCard extends React.Component {
+  handleClick = () => {
+    this.props.selectFlat(this.props.flat);
+  };
+
   render() {
     const { flat } = this.props;
 
@@ -11,13 +15,14 @@ class FlatCard extends React.Component {
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(${flat.imageUrl})`,
         }}
+        onClick={this.handleClick}
       >
         <div className="card-category">
           {flat.price}
           {flat.priceCurrency}
         </div>
         <div className="card-description">
-          <h2>Super 60m2 in trendy neighborhood!</h2>
+          <h2>{flat.name}</h2>
         </div>
         <a className="card-link" href="#"></a>
       </div>
