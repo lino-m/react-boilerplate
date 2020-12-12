@@ -20,10 +20,11 @@ class App extends React.Component {
   };
 
   render() {
+    const { loaded, selectedFlat } = this.state;
     return (
       <div>
-        <FlatsList flats={this.state.loaded} selectFlat={this.selectFlat} />
-        <SimpleMap />
+        <FlatsList flats={loaded} selectFlat={this.selectFlat} />
+        <SimpleMap flats={loaded} selectedFlat={selectedFlat} />
       </div>
     );
   }
